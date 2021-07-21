@@ -29,8 +29,8 @@ if (!isset($device) || $device == '') {
             function reload() {
                 const time = new Date().getTime();
                 const source = image.getAttribute('src');
-                const originSource = source.substr(0, source.indexOf('?'));
-                image.setAttribute('src', originSource.concat('?time=' + time));
+                const newSource = source.substr(0, source.indexOf('?'));
+                image.setAttribute('src', newSource.concat('?time=' + time));
             }
 
             document.addEventListener('DOMContentLoaded', () => setInterval(reload, 2000), false);

@@ -33,8 +33,8 @@
 
         images.forEach(image => {
             const source = image.getAttribute('src');
-            const originSource = source.substr(0, source.indexOf('?'));
-            image.setAttribute('src', originSource.concat('?time=' + time));
+            const newSource = source.substr(0, source.indexOf('?'));
+            image.setAttribute('src', newSource.concat('?time=' + time));
         });
     }
 
