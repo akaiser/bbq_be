@@ -11,7 +11,9 @@ if (isset($device)) {
     $image = $_POST['image'];
 
     $image_path = 'uploads/' . $device . '.jpg';
-    file_put_contents($image_path, base64_decode($image));
+    $file = fopen($image_path, 'w');
+    fwrite($file, base64_decode($image));
+    fclose($file);
 
     //$orientation = $_POST['orientation'];
     //$rotated = imagerotate(imagecreatefromjpeg($image_path), $orientation == 'portrait' ? 0 : 0, 0);
