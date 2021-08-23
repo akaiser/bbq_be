@@ -7,21 +7,18 @@ if ($_SERVER['REQUEST_METHOD'] != 'POST') {
 }
 
 $device = @$_POST['device'];
-if (isset($device)) {
-    $image = $_POST['image'];
+$image = $_POST['image'];
 
+if (isset($device) && isset($image)) {
     $image_path = 'uploads/' . $device . '.jpg';
     $file = fopen($image_path, 'w');
+
     fwrite($file, base64_decode($image));
     fclose($file);
-
-    //$orientation = $_POST['orientation'];
-    //$rotated = imagerotate(imagecreatefromjpeg($image_path), $orientation == 'portrait' ? 0 : 0, 0);
-    //imagejpeg($rotated, $image_path);
 
     http_response_code(201);
     exit;
 } else {
     http_response_code(400);
-    exit('Body should contain image, device and orientation identifiers.');
+    exit('Body should contain device and image identifiers.');
 }
