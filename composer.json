@@ -1,4 +1,7 @@
 {
+  "require": {
+    "php": "^8.1.2"
+  },
   "scripts": {
     "compile": [
       "chmod 755 uploads/"
