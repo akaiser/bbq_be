@@ -1,7 +1,4 @@
 {
-  "require-dev": {
-    "heroku/heroku-buildpack-php": "*"
-  },
   "scripts": {
     "compile": [
       "chmod 755 uploads/"
